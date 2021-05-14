@@ -1,0 +1,22 @@
+{
+  "name": "my-first-miniprogram",
+  "version": "1.0.0",
+  "description": "my first mini-program with some npm packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmosChenYQ/my-first-mini-program-for-wechat.git"
+  },
+  "author": "AmosChenYQ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmosChenYQ/my-first-mini-program-for-wechat/issues"
+  },
+  "homepage": "https://github.com/AmosChenYQ/my-first-mini-program-for-wechat#readme",
+  "dependencies": {
+    "lin-ui": "^0.9.4"
+  }
+}

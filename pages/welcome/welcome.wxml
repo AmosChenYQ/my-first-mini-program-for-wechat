@@ -1,6 +1,6 @@
 <!--pages/welcome/welcome.wxml-->
 <view class="container">
-  <image src="/images/microsoft.jpg" class="user-avatar"></image>
+  <l-avatar class="l-avatar" size="200" placement="bottom" open-data="{{['userAvatarUrl', 'userNickName']}}"></l-avatar>
   <text class="motto">Hello, AmosChenYQ</text>
   <!-- native button component is too hard to use, so build a view component to  replace it -->
   <!-- <button>Start Journey of Mini-Program</button> -->
