@@ -1,31 +1,35 @@
 <!-- pages/posts/posts.wxml -->
 <view>
-  <swiper interval="{{1000}}" indicator-color="{{'gray'}}" indicator-active-color="{{'white'}}" indicator-dots="{{true}}" autoplay="{{false}}">
+  <swiper interval="{{1000}}" indicator-color="{{'gray'}}" indicator-active-color="{{'white'}}"
+    indicator-dots="{{true}}" autoplay="{{false}}">
     <swiper-item>
-      <image src="/images/heavy clouds over moutains.jpg"></image>
+      <image src="/images/posts/heavy clouds over moutains.jpg"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/moutains surronded by cloud.jpg"></image>
+      <image src="/images/posts/moutains surronded by cloud.jpg"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/top view from east part of fuzhou.jpg"></image>
+      <image src="/images/posts/top view from east part of fuzhou.jpg"></image>
     </swiper-item>
   </swiper>
-  <view class="post-container">
-    <view class="post-author-date">
-      <image class="post-author" src="/images/BVB carton.jpg"></image>
-      <text class="post-date">2021-05-14 19:39</text>
+
+  <block wx:for="{{posts}}">
+    <view class="post-container">
+      <view class="post-author-date">
+        <image class="post-author" src="{{item.avatarSrc}}"></image>
+        <text class="post-date">{{item.date}}</text>
+      </view>
+      <text class="post-title">{{item.title}}</text>
+      <image class="post-image" src="{{item.imgSrc}}"></image>
+      <text class="post-content">
+        {{item.content}}
+      </text>
+      <view class="post-like">
+        <l-icon class="post-like-image" size="28" color="#666" name="favor" />
+        <text class="post-like-font">{{item.viewData.read}}</text>
+        <l-icon class="post-like-image" size="28" color="#666" name="eye" />
+        <text class="post-like-font">{{item.viewData.collection}}</text>
+      </view>
     </view>
-    <text class="post-title">东南亚新冠疫情告急！新加坡全国半封锁一个月，日本扩大紧急状态，印度农村“失控”</text>
-    <image class="post-image" src="/images/COVID-19 structure.jpg"></image>
-    <text class="post-content">
-      以日本、印度和新加坡为代表的部分亚洲国家日前出现新冠疫情反弹，造成经济活动停滞，促使政府不得不推出更强硬的防控措施。现在，新加坡全国封锁一个月，日本扩大紧急状态，印度农村地区确诊病例暴增。
-    </text>
-    <view class="post-like">
-      <image class="post-like-image" src="/images/icon/chat.png"></image>
-      <text class="post-like-font">100</text>
-      <image class="post-like-image" src="/images/icon/view.png"></image>
-      <text class="post-like-font">200</text>
-    </view>
-  </view>
+  </block>
 </view>
