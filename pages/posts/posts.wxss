@@ -28,7 +28,7 @@ swiper swiper-item image {
   align-items: center;
 }
 
-.post-author {
+.post-author-avatar {
   width: 60rpx;
   height: 60rpx;
   border-radius: 50%;

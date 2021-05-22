@@ -1,4 +1,4 @@
-// pages/welcome/welcome.js
+// pages/post-detail/post-detail.js
 Page({
 
   /**
@@ -6,12 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  onTapNav: function (event) {
-    wx.navigateTo({
-      url: '/pages/posts/posts',
-    });
   },
 
   /**

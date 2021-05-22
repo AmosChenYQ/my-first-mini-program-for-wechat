@@ -13,10 +13,10 @@
     </swiper-item>
   </swiper>
 
-  <block wx:for="{{posts}}">
-    <view class="post-container">
+  <block wx:for="{{posts}}" wx:for-item="item" wx:for-index="index"  wx:key="index" >
+    <view bind:tap="onNavigateToDetail" class="post-container">
       <view class="post-author-date">
-        <image class="post-author" src="{{item.avatarSrc}}"></image>
+        <image catch:tap="onTapAvatar" class="post-author-avatar" src="{{item.avatarSrc}}"></image>
         <text class="post-date">{{item.date}}</text>
       </view>
       <text class="post-title">{{item.title}}</text>

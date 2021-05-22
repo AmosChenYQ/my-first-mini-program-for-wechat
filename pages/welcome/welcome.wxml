@@ -4,7 +4,7 @@
   <text class="motto">Hello, AmosChenYQ</text>
   <!-- native button component is too hard to use, so build a view component to  replace it -->
   <!-- <button>Start Journey of Mini-Program</button> -->
-  <view class="journey-container">
+  <view bind:tap="onTapNav" class="journey-container">
     <text class="journey">Start Journey of Mini-Program</text>
   </view>
 </view>
