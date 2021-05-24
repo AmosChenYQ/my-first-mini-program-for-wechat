@@ -1,19 +1,19 @@
 <!--pages/post-detail/post-detail.wxml-->
 <view class="container">
-  <image class="head-image" src="/images/posts/COVID-19 structure.jpg"></image>
+  <image class="head-image" src="{{postData.imgSrc}}"></image>
   <view class="author-date">
-    <image class="avatar" src="/images/avatar/BVB carton.jpg"></image>
-    <text class="author">AmosChenYQ</text>
+    <image class="avatar" src="{{postData.avatarSrc}}"></image>
+    <text class="author">{{postData.author}}</text>
     <text class="const-text">发表于</text>
-    <text class="date">2020-5-20</text>
+    <text class="date">{{postData.date}}</text>
   </view>
-  <text class="title">This is a title</text>
+  <text class="title">{{postData.title}}</text>
   <view class="tool-container">
+    <view class="horizon"></view>
     <view class="image-container">
       <image class="circle-image" src="/images/icon/collection.png"></image>
       <image class="circle-image" src="/images/icon/share.png"></image>
     </view>
-    <view class="horizon"></view>
   </view>
-  <text class="detail">This is detail part of detail post page.This is detail part of detail post page.This is detail part of detail post page.This is detail part of detail post page.</text>
+  <text class="detail">{{postData.content}}</text>
 </view>

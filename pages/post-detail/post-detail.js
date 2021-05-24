@@ -1,3 +1,5 @@
+import { postsList } from "../../data/data"
+
 // pages/post-detail/post-detail.js
 Page({
 
@@ -5,14 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    postData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let postData = postsList[options.pid];
+    console.log(postData);
+    this.setData({postData})
   },
 
   /**

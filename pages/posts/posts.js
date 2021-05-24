@@ -1,4 +1,4 @@
-import { c, postsList } from "../../data/data"
+import { postsList } from "../../data/data"
 
 // pages/posts/posts.js
 Page({
@@ -11,13 +11,14 @@ Page({
   },
 
   onNavigateToDetail(event) {
+    console.log(event);
     wx.navigateTo({
-      url: '/pages/post-detail/post-detail',
+      url: `/pages/post-detail/post-detail?pid=${event.currentTarget.dataset.postId}`,
     });
   },
 
   onTapAvatar(event) {
-    console.log(event);
+    // console.log(event);
   },
 
   /**
@@ -31,23 +32,9 @@ Page({
       url: 'https://example.com/hot',
       dataType: 'json',
       success(res) {
-        that.setData(res.data);
+        that.setData({postsList});
       }
     });
-
-    // The code below is used to test 
-
-    // let sum = -1;
-    // this.setData({data: content});
-    // this.setData({sum});
-
-    // setInterval(() => {
-    //   sum++;
-    //   this.setData({sum});
-    //   console.log("set new data after 1000ms");
-    // }, 2000);
-
-    // console.log("onload");
   },
 
   /**

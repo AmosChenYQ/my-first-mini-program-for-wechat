@@ -51,20 +51,39 @@
   letter-spacing: 2rpx;
 }
 
+.tool-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 20rpx 20rpx 20rpx;
+}
+
 .image-container {
-  border: solid 1px black;
-  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  /* border: solid 1px black; */
+}
+
+.circle-image:first-of-type {
+  margin-right: 20rpx;
 }
 
 .horizon {
-  width: 660rpx;
   height: 2rpx;
   background-color: #e5e5e5;
+  flex-grow: 1;
 }
 
 .circle-image {
   width: 90rpx;
   height: 90rpx;
+}
+
+.detail {
+  color: #666666;
+  margin: 0 20rpx 20rpx 20rpx;
+  line-height: 44rpx;
+  letter-spacing: 2rpx;
 }
 
 
