@@ -7,7 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postData: {}
+    postData: {},
+    collected: false,
+    _pid: null,
+    _collectedPosts: {}
+  },
+
+  onCollect(event) {
+    const collectedPosts = this.data._collectedPosts;
+    let collected = !this.data.collected;
+    this.setData({collected: collected});
+    collectedPosts[this.data._pid] = collected;
+    wx.setStorageSync('collectedPosts', collectedPosts);
   },
 
   /**
@@ -15,8 +26,11 @@ Page({
    */
   onLoad: function (options) {
     let postData = postsList[options.pid];
-    console.log(postData);
-    this.setData({postData})
+    this.data._pid = options.pid;
+    const collectedPosts = wx.getStorageSync('collectedPosts') || {};
+    this.data._collectedPosts = collectedPosts;
+    let collected = collectedPosts[this.data._pid] || false;
+    this.setData({postData, collected});
   },
 
   /**

@@ -11,7 +11,8 @@
   <view class="tool-container">
     <view class="horizon"></view>
     <view class="image-container">
-      <image class="circle-image" src="/images/icon/collection.png"></image>
+      <image wx:if="{{collected}}" class="circle-image" bind:tap="onCollect" src="/images/icon/collection.png"></image>
+      <image wx:else="" class="circle-image" bind:tap="onCollect" src="/images/icon/collection-anti.png"></image>
       <image class="circle-image" src="/images/icon/share.png"></image>
     </view>
   </view>

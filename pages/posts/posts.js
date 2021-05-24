@@ -11,7 +11,6 @@ Page({
   },
 
   onNavigateToDetail(event) {
-    console.log(event);
     wx.navigateTo({
       url: `/pages/post-detail/post-detail?pid=${event.currentTarget.dataset.postId}`,
     });
@@ -24,7 +23,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  async onLoad() {
     let data = postsList;
     let that = this;
 
@@ -35,6 +34,11 @@ Page({
         that.setData({postsList});
       }
     });
+
+    // wx.setStorageSync('flag', true);
+    wx.setStorageSync("flag", true);
+    const flag = await wx.getStorage({key: "flag"});
+
   },
 
   /**
