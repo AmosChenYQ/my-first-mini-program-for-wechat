@@ -13,12 +13,42 @@ Page({
     _collectedPosts: {}
   },
 
-  onCollect(event) {
+  async onShare(event) {
+    let actionResult = await wx.showActionSheet({
+      itemList: ["Share to Friends", "Share to Moments"],
+    });
+    console.log(actionResult);
+  },
+
+  onAudio() {
+    let manager = wx.getBackgroundAudioManager();
+    manager.src = postsList[this.data._pid].music.url;
+    manager.title = postsList[this.data._pid].music.title;
+  },
+
+  async onCollect(event) {
     const collectedPosts = this.data._collectedPosts;
     let collected = !this.data.collected;
     this.setData({collected: collected});
     collectedPosts[this.data._pid] = collected;
     wx.setStorageSync('collectedPosts', collectedPosts);
+
+    wx.showToast({
+      title: collected ? "Collected" : "Un-Collected" ,
+      duration: 3000
+    });
+
+    /*
+    let modalResult = await wx.showModal({
+      title: "Collect Hint",
+      content: !collected ? "Do you want to un-collect this article?" : "Do you want to collect this article?"
+    });
+    if(modalResult.confirm) {
+      this.setData({collected: collected});
+      collectedPosts[this.data._pid] = collected;
+      wx.setStorageSync('collectedPosts', collectedPosts);
+    }
+    */
   },
 
   /**

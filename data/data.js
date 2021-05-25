@@ -9,6 +9,11 @@ let postsList = [{
   viewData: {
     read: 100,
     collection: 200
+  },
+  music: {
+    url: "http://music.163.com/song/media/outer/url?id=1372060183.mp3",
+      title: "空-徐海俏",
+      coverImg: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002sNbWp3royJG_1.jpg?max_age=2592000",
   }
 }, {
   postId: "1",
@@ -21,6 +26,11 @@ let postsList = [{
   viewData: {
     read: 99,
     collection: 299
+  },
+  music: {
+    url: "http://music.163.com/song/media/outer/url?id=30031580.mp3",
+      title: "原来你也在这里-秦昊",
+      coverImg: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002sNbWp3royJG_1.jpg?max_age=2592000"
   }
 }, {
   postId: "2",
@@ -33,6 +43,11 @@ let postsList = [{
   viewData: {
     read: 909,
     collection: 99
+  },
+  music: {
+    url: "http://music.163.com/song/media/outer/url?id=1386866050.mp3",
+      title: "笑看风云",
+      coverImg: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002sNbWp3royJG_1.jpg?max_age=2592000"
   }
 }];
 

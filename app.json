@@ -8,6 +8,7 @@
     "navigationBarBackgroundColor": "#c22a1e"
   },
   "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio", "location"],
   "usingComponents": {
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index"
