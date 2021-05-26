@@ -1,4 +1,5 @@
 import { postsList } from "../../data/data"
+const app = getApp();
 
 // pages/post-detail/post-detail.js
 Page({
@@ -9,6 +10,7 @@ Page({
   data: {
     postData: {},
     collected: false,
+    isPlaying: false,
     _pid: null,
     _collectedPosts: {}
   },
@@ -22,8 +24,17 @@ Page({
 
   onAudio() {
     let manager = wx.getBackgroundAudioManager();
-    manager.src = postsList[this.data._pid].music.url;
-    manager.title = postsList[this.data._pid].music.title;
+
+    if(this.data.isPlaying) {
+      manager.pause();
+    } else {
+      let music = postsList[this.data._pid].music;
+      manager.src = music.url;
+      manager.title = music.title;
+      manager.coverImgUrl = music.coverImg;
+      manager.play();
+    }
+    // this.setData({isPlaying: !this.data.isPlaying});
   },
 
   async onCollect(event) {
@@ -60,7 +71,20 @@ Page({
     const collectedPosts = wx.getStorageSync('collectedPosts') || {};
     this.data._collectedPosts = collectedPosts;
     let collected = collectedPosts[this.data._pid] || false;
-    this.setData({postData, collected});
+    let isPlaying = app.gIsPlayingMusic && this.data._pid === app.gPlayingMusicId;
+    this.setData({postData, collected, isPlaying});
+
+    let manager = wx.getBackgroundAudioManager();
+    manager.onPause(() => {
+      app.gIsPlayingMusic = false;
+      app.gPlayingMusicId = -1;
+      this.setData({isPlaying: false});
+    });
+    manager.onPlay(() => {
+      app.gIsPlayingMusic = true;
+      app.gPlayingMusicId = this.data._pid;
+      this.setData({isPlaying: true});
+    });
   },
 
   /**
@@ -81,14 +105,16 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    // let manager = wx.getBackgroundAudioManager();
+    // manager.stop();
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // let manager = wx.getBackgroundAudioManager();
+    // manager.stop();
   },
 
   /**

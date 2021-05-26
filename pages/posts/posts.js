@@ -28,7 +28,7 @@ Page({
     let that = this;
 
     wx.request({
-      url: 'https://example.com/hot',
+      url: 'https://zhihu.com/hot',
       dataType: 'json',
       success(res) {
         that.setData({postsList});

@@ -1,7 +1,6 @@
 // pages/welcome/welcome.js
 
 const app = getApp();
-console.log(app);
 
 Page({
 
