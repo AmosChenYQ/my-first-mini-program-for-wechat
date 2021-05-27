@@ -2,34 +2,14 @@
 <view>
   <swiper interval="{{1000}}" indicator-color="{{'gray'}}" indicator-active-color="{{'white'}}"
     indicator-dots="{{true}}" autoplay="{{false}}">
-    <swiper-item bind:tap="onNavigateToDetail" data-post-id="0">
-      <image src="/images/posts/heavy clouds over moutains.jpg"></image>
-    </swiper-item>
-    <swiper-item bind:tap="onNavigateToDetail" data-post-id="1">
-      <image src="/images/posts/moutains surronded by cloud.jpg"></image>
-    </swiper-item>
-    <swiper-item bind:tap="onNavigateToDetail" data-post-id="2">
-      <image src="/images/posts/top view from east part of fuzhou.jpg"></image>
-    </swiper-item>
+    <block wx:for="{{imgUriList}}" wx:for-item="item" wx:for-index="index"  wx:key="index" >
+      <swiper-item bind:tap="onNavigateToDetail" data-post-id="{{index}}">
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
   </swiper>
 
   <block wx:for="{{postsList}}" wx:for-item="item" wx:for-index="index"  wx:key="index" >
-    <view bind:tap="onNavigateToDetail" class="post-container" data-post-id="{{item.postId}}">
-      <view class="post-author-date">
-        <image catch:tap="onTapAvatar" class="post-author-avatar" src="{{item.avatarSrc}}"></image>
-        <text class="post-date">{{item.date}}</text>
-      </view>
-      <text class="post-title">{{item.title}}</text>
-      <image class="post-image" src="{{item.imgSrc}}"></image>
-      <text class="post-content">
-        {{item.content}}
-      </text>
-      <view class="post-like">
-        <l-icon class="post-like-image" size="28" color="#666" name="favor" />
-        <text class="post-like-font">{{item.viewData.read}}</text>
-        <l-icon class="post-like-image" size="28" color="#666" name="eye" />
-        <text class="post-like-font">{{item.viewData.collection}}</text>
-      </view>
-    </view>
+    <post itemData="{{item}}"></post>
   </block>
 </view>

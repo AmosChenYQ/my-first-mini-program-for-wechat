@@ -1,0 +1,18 @@
+<!--components/post/index.wxml-->
+<view bind:tap="onNavigateToDetail" class="post-container" data-post-id="{{itemData.postId}}">
+  <view class="post-author-date">
+    <image catch:tap="onTapAvatar" class="post-author-avatar" src="{{itemData.avatarSrc}}"></image>
+    <text class="post-date">{{itemData.date}}</text>
+  </view>
+  <text class="post-title">{{itemData.title}}</text>
+  <image class="post-image" src="{{itemData.imgSrc}}"></image>
+  <text class="post-content">
+    {{itemData.content}}
+  </text>
+  <view class="post-like">
+    <l-icon class="post-like-image" size="28" color="#666" name="favor" />
+    <text class="post-like-font">{{itemData.viewData.read}}</text>
+    <l-icon class="post-like-image" size="28" color="#666" name="eye" />
+    <text class="post-like-font">{{itemData.viewData.collection}}</text>
+  </view>
+</view>

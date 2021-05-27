@@ -7,7 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    imgUriList: [
+      "/images/posts/heavy clouds over moutains.jpg",
+      "/images/posts/moutains surronded by cloud.jpg",
+      "/images/posts/top view from east part of fuzhou.jpg"
+    ]
   },
 
   onNavigateToDetail(event) {
