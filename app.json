@@ -2,15 +2,37 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/posts/posts",
-    "pages/post-detail/post-detail"
+    "pages/post-detail/post-detail",
+    "pages/movies/movies"
   ],
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
   },
   "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio", "location"],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "usingComponents": {
     "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
     "l-icon": "/miniprogram_npm/lin-ui/icon/index"
+  },
+  "tabBar": {
+    "selectedColor": "#111111",
+    "color": "#aaaaaa",
+    "list": [
+      {
+        "pagePath": "pages/posts/posts",
+        "text": "Posts",
+        "iconPath": "/images/tab/read.png",
+        "selectedIconPath": "/images/tab/read@highlight.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "Movies",
+        "iconPath": "/images/tab/movies.png",
+        "selectedIconPath": "/images/tab/movies@highlight.png"
+      }
+    ]
   }
 }

@@ -1,7 +1,4 @@
-// pages/welcome/welcome.js
-
-const app = getApp();
-
+// pages/movies/movies.js
 Page({
 
   /**
@@ -9,12 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  onTapNav: function (event) {
-    wx.switchTab({
-      url: '/pages/posts/posts',
-    });
   },
 
   /**
