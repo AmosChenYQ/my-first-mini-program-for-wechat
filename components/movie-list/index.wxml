@@ -1,0 +1,10 @@
+<!--components/movie-list/index.wxml-->
+<view class="movie-list-container">
+  <view>
+    <text>Hot</text>
+    <text>More</text>
+  </view>
+  
+  <movie></movie>
+</view>
+

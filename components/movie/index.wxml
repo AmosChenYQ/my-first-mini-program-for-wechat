@@ -1,0 +1,10 @@
+<!--components/movie/index.wxml-->
+<view class="movie-container">
+  <image class="movie-poster" src="/images/posts/view from top of mountain Gu.jpg"></image>
+  <text class="movie-title">Movie Title Movie Title Movie Title</text>
+  <view class="rate-container">
+    <l-rate disabled="{{true}}" size="22" score="3"></l-rate>
+    <text>3.0</text>
+  </view>
+
+</view>
