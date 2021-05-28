@@ -3,8 +3,17 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {
+  externalClasses: ['movie-list-class'],
 
+  properties: {
+    title: {
+      type: String,
+      value: "In Theaters Now"
+    },
+    movies: {
+      type: Array,
+      value: []
+    }
   },
 
   /**

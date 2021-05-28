@@ -1,1 +1,22 @@
 /* components/movie-list/index.wxss */
+.movie-list-container {
+  padding: 20rpx 28rpx;
+  background-color: white;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+}
+
+.text-more {
+  color: #1f4ba5;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

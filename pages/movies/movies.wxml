@@ -1,2 +1,4 @@
 <!--pages/movies/movies.wxml-->
-<movie-list></movie-list>
+<movie-list title="In Theaters Now" movies="{{inTheaters}}" movie-list-class="movie-list-class" ></movie-list>
+<movie-list title="Coming Soon" movies="{{comingSoon}}" movie-list-class="movie-list-class" ></movie-list>
+<movie-list title="Douban Top 250" movies="{{doubanTop250}}" movie-list-class="movie-list-class" ></movie-list>
