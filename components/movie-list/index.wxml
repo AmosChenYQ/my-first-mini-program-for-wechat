@@ -2,7 +2,7 @@
 <view class="movie-list-container movie-list-class">
   <view class="title-container">
     <text>{{title}}</text>
-    <text class="text-more">More ></text>
+    <text class="text-more" bind:tap="onNavigateToMoreMovies">More ></text>
   </view>
   <view class="list-container">
     <block wx:for="{{movies}}" wx:key="index" wx:for-item="movie">
@@ -10,4 +10,3 @@
     </block>
   </view>
 </view>
-

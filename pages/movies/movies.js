@@ -10,6 +10,9 @@ Page({
     inTheaters:[],
     comingSoon: [],
     doubanTop250: [],
+    callback: () => {
+      console.log("callback");
+    }
   },
 
   getMoviesListData(uri, dataName) {
@@ -34,42 +37,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // let that = this;
-    /*
-    wx.request({
-      url: app.gBaseUrl + 'in_theaters',
-      data:{
-        start:0,
-        count:3
-      },
-      success: (res) => {
-        res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
-        this.setData({inTheaters: res.data.subjects});
-      }
-    });
-    wx.request({
-      url: app.gBaseUrl + 'coming_soon',
-      data:{
-        start:0,
-        count:3
-      },
-      success: (res) => {
-        res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
-        this.setData({comingSoon: res.data.subjects});
-      }
-    });
-    wx.request({
-      url: app.gBaseUrl + 'top250',
-      data:{
-        start:0,
-        count:3
-      },
-      success: (res) => {
-        res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
-        this.setData({doubanTop250: res.data.subjects});
-      }
-    });
-    */
     this.getMoviesListData("in_theaters", "inTheaters");
     this.getMoviesListData("coming_soon", "comingSoon");
     this.getMoviesListData("top250", "doubanTop250");

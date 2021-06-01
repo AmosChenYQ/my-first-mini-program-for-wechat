@@ -3,8 +3,8 @@
   <swiper interval="{{1000}}" indicator-color="{{'gray'}}" indicator-active-color="{{'white'}}"
     indicator-dots="{{true}}" autoplay="{{false}}">
     <block wx:for="{{imgUriList}}" wx:for-item="item" wx:for-index="index"  wx:key="index" >
-      <swiper-item bind:tap="onNavigateToDetail" data-post-id="{{index}}">
-        <image src="{{item}}"></image>
+      <swiper-item bind:tap="onNavigateToDetail" data-post-id="{{item.postId}}">
+        <image src="{{item.uri}}"></image>
       </swiper-item>
     </block>
   </swiper>

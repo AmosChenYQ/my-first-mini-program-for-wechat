@@ -8,9 +8,9 @@ Page({
    */
   data: {
     imgUriList: [
-      "/images/posts/heavy clouds over moutains.jpg",
-      "/images/posts/moutains surronded by cloud.jpg",
-      "/images/posts/top view from east part of fuzhou.jpg"
+      {"uri": "/images/posts/heavy clouds over moutains.jpg", "postId": 0},
+      {"uri": "/images/posts/moutains surronded by cloud.jpg", "postId": 1},
+      {"uri": "/images/posts/heavy clouds over moutains.jpg", "postId": 2},
     ]
   },
 
@@ -28,7 +28,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad() {
-    let data = postsList;
     let that = this;
 
     wx.request({
