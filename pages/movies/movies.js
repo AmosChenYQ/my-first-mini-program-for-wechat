@@ -9,10 +9,7 @@ Page({
   data: {
     inTheaters:[],
     comingSoon: [],
-    doubanTop250: [],
-    callback: () => {
-      console.log("callback");
-    }
+    doubanTop250: []
   },
 
   getMoviesListData(uri, dataName) {

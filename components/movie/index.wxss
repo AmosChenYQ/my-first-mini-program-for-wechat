@@ -27,7 +27,7 @@
   align-items: baseline;
 }
 
-.rate-container > text {
+.rate-container-text {
   font-size: 20rpx;
   margin-left: 24rpx;
 }

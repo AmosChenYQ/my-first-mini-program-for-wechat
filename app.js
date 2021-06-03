@@ -3,9 +3,10 @@ App(
     onLaunch() {
       console.log("mini program starts");
     },
-    globalProp: "This is global property",
+    glocalProp: "This is global property",
     gIsPlayingMusic: false,
     gPlayingMusicId: -1,
-    gBaseUrl: "http://t.talelin.com/v2/movie/"
+    gBaseUrl: "http://t.talelin.com/v2/movie/",
+    gMoviesPerPage: 15
   }
 )

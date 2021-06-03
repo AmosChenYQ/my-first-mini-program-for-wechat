@@ -1,2 +1,8 @@
-<!--pages/more-movies/more-movies.wxml-->
-<text>pages/more-movies/more-movies.wxml</text>
+<view class="more-movies-container">
+    <block wx:for="{{movies}}" wx:key="index" wx:for-item="movie">
+      <movie movie="{{movie}}"></movie>
+    </block>
+</view>
+<view wx:if="{{isLoading}}"class="loading-bar-container">
+  <l-loading show="{{true}}" type="flash" size="large" color="#c22a1e"></l-loading>
+</view>

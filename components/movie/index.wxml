@@ -4,6 +4,6 @@
   <text class="movie-title">{{movie.original_title}}</text>
   <view class="rate-container">
     <l-rate disabled="{{true}}" size="22" score="{{movie.rating.stars}}"></l-rate>
-    <text>{{movie.rating.average}}</text>
+    <text class="rate-container-text">{{movie.rating.average}}</text>
   </view>
 </view>
