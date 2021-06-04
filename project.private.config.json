@@ -33,7 +33,7 @@
         {
           "name": "pages/more-movies/more-movies",
           "pathName": "pages/more-movies/more-movies",
-          "query": "type=top250",
+          "query": "type=in_theaters",
           "scene": null
         }
       ]
