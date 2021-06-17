@@ -2,5 +2,6 @@
   "usingComponents": {
     "movie": "/components/movie/index",
     "l-loading": "/miniprogram_npm/lin-ui/loading/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

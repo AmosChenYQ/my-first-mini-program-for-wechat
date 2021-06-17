@@ -12,3 +12,6 @@
       <movie movie="{{movie}}"></movie>
     </block>
 </view>
+<view wx:if="{{isSearchPageLoading}}" class="loading-bar-container">
+  <l-loading show="{{true}}" type="flash" size="large" color="#c22a1e"></l-loading>
+</view>

@@ -17,6 +17,7 @@ Page({
 
   getMoviesListData(uri, page = 1) {
     try {
+      wx.showNavigationBarLoading();
       wx.request({
         url: `${app.gBaseUrl}/${uri}`,
         data:{
@@ -29,6 +30,7 @@ Page({
             this.data._reachToEnd = true;
           }
           this.data._movies = this.data._movies.concat(res.data.subjects);
+          wx.hideNavigationBarLoading();
           this.setData({movies: this.data._movies, isLoading: false});
         }
       });

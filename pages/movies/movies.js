@@ -13,10 +13,10 @@ Page({
     searchBarQuery: "",
     isShowSearchResult: false,
     searchMovies: [],
+    isSearchPageLoading: false,
     _searchMovies: [],
     _searchMoviesPage: 1,
     _querySearch: "",
-    _isSearchPageLoading: false,
     _reachToEnd: false
   },
 
@@ -39,6 +39,7 @@ Page({
   },
 
   getSearchMoviesData(query, page = 1) {
+    this.setData({isSearchPageLoading: true});
     wx.request({
       url: `${app.gBaseUrl}/search`,
       data: {
@@ -52,7 +53,10 @@ Page({
         }
         res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
         this.data._searchMovies = this.data._searchMovies.concat(res.data.subjects);
-        this.setData({searchMovies: this.data._searchMovies});
+        this.setData({searchMovies: this.data._searchMovies, isSearchPageLoading: false});
+      },
+      fail: (res) => {
+        this.setData({isSearchPageLoading: false});
       }
     });
   },
