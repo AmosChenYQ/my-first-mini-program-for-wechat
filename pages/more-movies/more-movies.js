@@ -80,6 +80,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.data.isLoading = false;
+    this.data._page = 1;
+    this.data._movies = [];
+    this.data._reachToEnd = false;
+    this.getMoviesListData(this.data._type, this.data._page);
+    wx.stopPullDownRefresh();
   },
 
   /**
