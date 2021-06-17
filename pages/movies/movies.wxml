@@ -1,4 +1,14 @@
 <!--pages/movies/movies.wxml-->
-<movie-list title="In Theaters Now" movies="{{inTheaters}}" movie-list-class="movie-list-class" ></movie-list>
-<movie-list title="Coming Soon" movies="{{comingSoon}}" movie-list-class="movie-list-class" ></movie-list>
-<movie-list title="Douban Top 250" movies="{{doubanTop250}}" movie-list-class="movie-list-class" ></movie-list>
+
+<l-search-bar l-class="search-bar-class" l-container-class="search-bar-container" id="searchBar" placeholder="Search films" cancel-text="Cancel" bind:linconfirm="searchBarConfirm" bind:lincancel="searchBarCancel"></l-search-bar>
+
+<view wx:if="{{!isShowSearchResult}}">
+  <movie-list title="In Theaters Now" movies="{{inTheaters}}" movie-list-class="movie-list-class" ></movie-list>
+  <movie-list title="Coming Soon" movies="{{comingSoon}}" movie-list-class="movie-list-class" ></movie-list>
+  <movie-list title="Douban Top 250" movies="{{doubanTop250}}" movie-list-class="movie-list-class" ></movie-list>
+</view>
+<view class="seach-results-container" wx:else>
+    <block wx:for="{{searchMovies}}" wx:key="index" wx:for-item="movie">
+      <movie movie="{{movie}}"></movie>
+    </block>
+</view>

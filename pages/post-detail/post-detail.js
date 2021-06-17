@@ -19,7 +19,6 @@ Page({
     let actionResult = await wx.showActionSheet({
       itemList: ["Share to Friends", "Share to Moments"],
     });
-    console.log(actionResult);
   },
 
   onAudio() {

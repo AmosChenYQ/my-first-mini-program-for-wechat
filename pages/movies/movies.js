@@ -9,13 +9,21 @@ Page({
   data: {
     inTheaters:[],
     comingSoon: [],
-    doubanTop250: []
+    doubanTop250: [],
+    searchBarQuery: "",
+    isShowSearchResult: false,
+    searchMovies: [],
+    _searchMovies: [],
+    _searchMoviesPage: 1,
+    _querySearch: "",
+    _isSearchPageLoading: false,
+    _reachToEnd: false
   },
 
   getMoviesListData(uri, dataName) {
     try {
       wx.request({
-        url: app.gBaseUrl + uri,
+        url: `${app.gBaseUrl}/${uri}`,
         data:{
           start:0,
           count:3
@@ -26,8 +34,42 @@ Page({
         }
       });
     } catch(e) {
-      console.log(e);
+      console.error(e);
     }
+  },
+
+  getSearchMoviesData(query, page = 1) {
+    wx.request({
+      url: `${app.gBaseUrl}/search`,
+      data: {
+        q: query,
+        start: (page - 1) * app.gSearchMoviesPerPage,
+        count: app.gSearchMoviesPerPage
+      },
+      success: (res) => {
+        if(res?.data?.subjects?.length && res.data.subjects.length < app.gSearchMoviesPerPage) {
+          this.data._reachToEnd = true;
+        }
+        res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
+        this.data._searchMovies = this.data._searchMovies.concat(res.data.subjects);
+        this.setData({searchMovies: this.data._searchMovies});
+      }
+    });
+  },
+
+  searchBarConfirm(event) {
+    this.setData({isShowSearchResult: true});
+    this.data._searchMovies = [];
+    this.data._reachToEnd = false;
+    this.data._searchMoviesPage = 1;
+    this.data._querySearch = event.detail.value;
+    this.getSearchMoviesData(this.data._querySearch, this._searchMoviesPage);
+  },
+
+  searchBarCancel(event) {
+    const searchBar = this.selectComponent("#searchBar");
+    searchBar.onClearTap(event);
+    this.setData({isShowSearchResult: false});
   },
 
   /**
@@ -71,14 +113,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.isShowSearchResult && !this.data._reachToEnd) {
+        this.data._searchMoviesPage += 1;
+        this.getSearchMoviesData(this.data._querySearch, this.data._searchMoviesPage);
+    }
   },
 
   /**

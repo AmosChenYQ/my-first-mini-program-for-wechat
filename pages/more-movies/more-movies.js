@@ -18,25 +18,23 @@ Page({
   getMoviesListData(uri, page = 1) {
     try {
       wx.request({
-        url: app.gBaseUrl + uri,
+        url: `${app.gBaseUrl}/${uri}`,
         data:{
           start: (page - 1) * app.gMoviesPerPage,
           count: app.gMoviesPerPage
         },
         success: (res) => {
-          console.log(`loading page ${page}`);
           res.data.subjects.forEach(item => item.rating.stars = parseInt(item.rating.stars) / 10);
           if(res?.data?.subjects?.length && res?.data?.subjects?.length < app.gMoviesPerPage) {
             this.data._reachToEnd = true;
           }
-          console.log(res.data.subjects);
           this.data._movies = this.data._movies.concat(res.data.subjects);
           this.setData({movies: this.data._movies, isLoading: false});
         }
       });
     } catch(e) {
       this.setData({isLoading: false});
-      console.log(e);
+      console.error(e);
     }
   },
 
@@ -80,7 +78,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    console.log("pull down");
   },
 
   /**

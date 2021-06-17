@@ -21,7 +21,6 @@ Page({
   },
 
   onTapAvatar(event) {
-    // console.log(event);
   },
 
   /**
