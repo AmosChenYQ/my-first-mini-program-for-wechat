@@ -1,7 +1,7 @@
 <!--components/post/index.wxml-->
-<view bind:tap="onNavigateToDetail" class="post-container" data-post-id="{{itemData.postId}}">
+<view bind:tap="onTap" class="post-container" data-post-id="{{itemData.postId}}">
   <view class="post-author-date">
-    <image catch:tap="onTapAvatar" class="post-author-avatar" src="{{itemData.avatarSrc}}"></image>
+    <image class="post-author-avatar" src="{{itemData.avatarSrc}}"></image>
     <text class="post-date">{{itemData.date}}</text>
   </view>
   <text class="post-title">{{itemData.title}}</text>

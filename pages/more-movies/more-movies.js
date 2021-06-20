@@ -13,6 +13,11 @@ Page({
     _movies: [],
     _type: "in_theaters",
     _reachToEnd: false,
+    _navigationTopBarTextMap: {
+      "in_theaters": "In Theaters Now",
+      "coming_soon": "Coming Soon",
+      "top250": "Douban Top 250"
+    }
   },
 
   getMoviesListData(uri, page = 1) {
@@ -45,6 +50,7 @@ Page({
    */
   onLoad: function (options) {
     this.data._type = options.type;
+    // wx.showNavigationBarLoading();
     this.getMoviesListData(this.data._type, this.data._page);
   },
 
@@ -52,7 +58,11 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let title = '';
+    title = this.data._navigationTopBarTextMap[this.data._type] || '';
+    wx.setNavigationBarTitle({
+      title
+    });
   },
 
   /**

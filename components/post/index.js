@@ -20,14 +20,16 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onNavigateToDetail(event) {
-      wx.navigateTo({
-        url: `/pages/post-detail/post-detail?pid=${event.currentTarget.dataset.postId}`,
+    // onNavigateToDetail(event) {
+    //   wx.navigateTo({
+    //     url: `/pages/post-detail/post-detail?pid=${event.currentTarget.dataset.postId}`,
+    //   });
+    // },
+
+    onTap() {
+      this.triggerEvent('tap-on-post', {
+        postId: this.properties.itemData.postId
       });
-    },
-  
-    onTapAvatar(event) {
-      // console.log(event);
     }
   }
 })

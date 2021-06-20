@@ -20,7 +20,10 @@ Page({
     });
   },
 
-  onTapAvatar(event) {
+  onTapOnPost(event) {
+    wx.navigateTo({
+      url: `/pages/post-detail/post-detail?pid=${event.detail.postId}`,
+    });
   },
 
   /**

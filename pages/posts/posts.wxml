@@ -10,6 +10,6 @@
   </swiper>
 
   <block wx:for="{{postsList}}" wx:for-item="item" wx:for-index="index"  wx:key="index" >
-    <post itemData="{{item}}"></post>
+    <post itemData="{{item}}" bind:tap-on-post="onTapOnPost"></post>
   </block>
 </view>
