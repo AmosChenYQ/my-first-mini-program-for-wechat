@@ -21,6 +21,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap(event) {
+      this.triggerEvent('tap-on-movie', {
+        movieId: this.properties.movie.id
+      }, {
+        bubbles: true,
+        composed: true
+      });
+    }
   }
 })

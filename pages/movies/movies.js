@@ -137,5 +137,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onTapOnMovie(event) {
+    wx.navigateTo({
+      url: `/pages/movie-detail/movie-detail?movieId=${event.detail.movieId}`
+    });
   }
 })

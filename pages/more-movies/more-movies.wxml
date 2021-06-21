@@ -1,4 +1,4 @@
-<view class="more-movies-container">
+<view class="more-movies-container" bind:tap-on-movie="onTapOnMovie">
     <block wx:for="{{movies}}" wx:key="index" wx:for-item="movie">
       <movie movie="{{movie}}"></movie>
     </block>
