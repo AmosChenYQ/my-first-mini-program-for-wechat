@@ -35,6 +35,12 @@
           "pathName": "pages/more-movies/more-movies",
           "query": "type=in_theaters",
           "scene": null
+        },
+        {
+          "name": "pages/movie-detail/movie-detail",
+          "pathName": "pages/movie-detail/movie-detail",
+          "query": "movieId=309",
+          "scene": null
         }
       ]
     }

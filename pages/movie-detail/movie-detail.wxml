@@ -1,2 +1,60 @@
 <!--pages/movie-detail/movie-detail.wxml-->
-<text>pages/movie-detail/movie-detail.wxml</text>
+<view class="movie-detail-container">
+  <view class="header-container">
+    <image mode="aspectFill" class="header-image" src="{{movie.images.large}}"></image>
+    <view class="movie-description-container">
+      <text class="main-title">{{movie.title}}</text>
+      <text class="sub-title">{{movie.subTitle}}</text>
+      <view class="like-comment-container">
+        <text class="highlight-font">{{movie.wish_count}}</text>
+        <text class="plain-font">Likes</text>
+        <text class="highlight-font">{{movie.comments_count}}</text>
+        <text class="plain-font">Comments</text>
+      </view>
+      <image bind:tap="onViewMovieImage" class="movie-image" src="{{movie.images.large}}"></image>
+    </view>
+  </view>
+  <view class="summary-container">
+    <view class="summary-title-container">
+      <text class="summary-title">{{movie.title}}</text>
+    </view>
+    <view class="item-container">
+      <text class="item-header">Rate</text>
+      <view class="rate-container">
+        <l-rate disabled="{{true}}" size="22" score="{{movie.rating.stars}}"></l-rate>
+        <text class="rate-container-text">{{movie.rating.average}}</text>
+      </view>
+    </view>
+    <view class="item-container">
+      <text class="item-header">Director</text>
+      <text class="item-body">{{movie.directorsNames}}</text>
+    </view>
+    <view class="item-container">
+      <text class="item-header">Casts</text>
+      <text class="item-body">{{movie.castsNames}}</text>
+    </view>
+    <view class="item-container">
+      <text class="item-header">Genres</text>
+      <text class="item-body">{{movie.genres}}</text>
+    </view>
+  </view>
+  <view class="hr"></view>
+  <view class="synopsis-container">
+    <text class="synopsis-header">Movie Synopsis</text>
+    <text class="synopsis-body">{{movie.summary}}</text>
+  </view>
+  <view class="hr"></view>
+
+  <view class="casts-info-container">
+    <text class="casts-info-title">Casts</text>
+    <scroll-view class="casts-card-container" scroll-x="true">
+      <block wx:for="{{movie.castsInfo}}" wx:key="index" wx:for-index="index" wx:for-item="cast">
+        <view class="cast-info-card">
+          <image class="cast-img" src="{{cast.img}}"></image>
+          <text class="cast-name">{{cast.name}}</text>
+        </view>
+      </block>
+    </scroll-view>
+
+  </view>
+</view>
