@@ -151,12 +151,15 @@
 .casts-card-container {
   display: flex;
   flex-direction: row;
+  margin-top: 20rpx;
+  height: 300rpx;
 }
 
 .cast-info-card {
   display: flex;
   flex-direction: column;
-  width: 170rpx;
+  align-items: center;
+  margin-right: 40rpx;
 }
 
 .cast-img {

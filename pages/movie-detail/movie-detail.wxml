@@ -47,7 +47,7 @@
 
   <view class="casts-info-container">
     <text class="casts-info-title">Casts</text>
-    <scroll-view class="casts-card-container" scroll-x="true">
+    <scroll-view enable-flex="{{true}}" scroll-x="{{true}}" class="casts-card-container">
       <block wx:for="{{movie.castsInfo}}" wx:key="index" wx:for-index="index" wx:for-item="cast">
         <view class="cast-info-card">
           <image class="cast-img" src="{{cast.img}}"></image>
